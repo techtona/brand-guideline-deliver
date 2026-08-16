@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deliver — Brand Guidelines (Deck)</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#E12B1A; --red-deep:#B81F12; --red-wash:#FBE7E4;
+  --ink:#17191C; --charcoal:#33373E; --grey:#8A8D92;
+  --grey-line:#E5E1DA; --offwhite:#F6F4F0; --paper:#FFFFFF;
+  --green:#1F8A5B; --green-wash:#E4F0EA;
+  --display:'Sora',sans-serif; --body:'IBM Plex Sans',sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{ box-sizing:border-box; }
+html,body{ margin:0; background:#0d0e10; }
+deck-stage:not(:defined){ visibility:hidden; }
+
+section{
+  font-family:var(--body);
+  color:var(--ink);
+  background:var(--offwhite);
+  overflow:hidden;
+}
+.pad{ position:absolute; inset:0; padding:96px 110px 130px; display:flex; flex-direction:column; }
+
+/* type */
+.eyebrow{ font-family:var(--mono); font-size:21px; font-weight:500; letter-spacing:.18em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:18px; margin:0 0 40px; }
+.eyebrow::before{ content:""; width:46px; height:2px; background:var(--red); display:inline-block; }
+.h-display{ font-family:var(--display); font-weight:800; letter-spacing:-.035em; line-height:1.0; }
+.h-sec{ font-family:var(--display); font-weight:700; letter-spacing:-.03em; line-height:1.05; font-size:68px; }
+.h-sub{ font-family:var(--display); font-weight:600; letter-spacing:-.02em; font-size:34px; }
+.lead{ font-size:30px; line-height:1.55; color:var(--charcoal); font-weight:400; }
+p{ line-height:1.6; color:var(--charcoal); }
+.grey{ color:var(--grey); }
+.mono{ font-family:var(--mono); }
+
+/* wordmark */
+.wordmark{ font-family:var(--display); font-weight:800; letter-spacing:-.04em; display:inline-flex; align-items:baseline; line-height:1; }
+.logo-img{ display:block; width:auto; }
+.wordmark .dot{ color:var(--red); }
+
+/* light section (formerly dark) */
+.dark{ background:var(--offwhite); color:var(--ink); }
+.dark .lead{ color:var(--charcoal); }
+.dark .eyebrow{ color:var(--red); } .dark .eyebrow::before{ background:var(--red); }
+.dark .h-sec, .dark .h-sub{ color:var(--ink); }
+
+/* footer strip */
+.foot{ position:absolute; left:110px; right:110px; bottom:54px; display:flex; justify-content:space-between; align-items:center; font-family:var(--mono); font-size:18px; letter-spacing:.1em; text-transform:uppercase; color:var(--grey); }
+.dark .foot{ color:var(--grey); }
+
+/* cover */
+.cover-glow{ position:absolute; right:-8%; top:-12%; width:1100px; height:1100px; background:radial-gradient(circle, rgba(225,43,26,.32), rgba(225,43,26,0) 62%); pointer-events:none; }
+
+/* grids */
+.cols{ display:grid; gap:54px; flex:1; min-height:0; }
+.c2{ grid-template-columns:1.25fr 1fr; }
+.c3{ grid-template-columns:repeat(3,1fr); }
+
+/* problem cards */
+.problem{ border-top:3px solid var(--ink); padding-top:22px; }
+.problem .n{ font-family:var(--mono); font-size:18px; color:var(--red); letter-spacing:.1em; }
+.problem h4{ font-family:var(--display); font-weight:600; font-size:30px; margin:14px 0 12px; }
+.problem p{ font-size:21px; margin:0; color:var(--charcoal); line-height:1.5; }
+
+/* logo stages */
+.stage{ background:var(--offwhite); border:1px solid var(--grey-line); border-radius:8px; display:flex; align-items:center; justify-content:center; }
+.stage--ink{ background:var(--ink); } .stage--red{ background:var(--red); }
+.clearbox{ position:relative; padding:60px; border:2px dashed var(--red); }
+.marker{ position:absolute; font-family:var(--mono); font-size:18px; color:var(--red); background:var(--offwhite); padding:0 8px; }
+
+/* do/dont */
+.dd{ border:1px solid var(--grey-line); border-radius:8px; overflow:hidden; background:var(--paper); display:flex; flex-direction:column; }
+.dd__art{ flex:1; display:flex; align-items:center; justify-content:center; background:var(--offwhite); position:relative; overflow:hidden; }
+.dd__cap{ padding:18px 20px; display:flex; gap:12px; align-items:flex-start; border-top:1px solid var(--grey-line); }
+.dd__tag{ font-family:var(--mono); font-size:16px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; padding:3px 9px; border-radius:4px; flex:none; }
+.dd__tag--no{ background:var(--red-wash); color:var(--red-deep); }
+.dd__tag--yes{ background:var(--green-wash); color:var(--green); }
+.dd__cap p{ margin:0; font-size:18px; color:var(--charcoal); line-height:1.4; }
+
+/* swatch */
+.swatch{ border:1px solid var(--grey-line); border-radius:8px; overflow:hidden; background:var(--paper); display:flex; flex-direction:column; }
+.swatch__chip{ height:130px; }
+.swatch__body{ padding:20px 22px; flex:1; }
+.swatch__name{ font-family:var(--display); font-weight:600; font-size:24px; margin:0 0 14px; }
+.swatch__row{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:18px; color:var(--charcoal); padding:7px 0; border-top:1px solid var(--grey-line); }
+.swatch__row span:first-child{ color:var(--grey); }
+.swatch__use{ margin-top:14px; font-size:17px; color:var(--grey); line-height:1.45; }
+
+/* ratio */
+.ratio{ display:flex; height:90px; border-radius:8px; overflow:hidden; border:1px solid var(--grey-line); }
+.ratio div{ display:flex; align-items:center; padding:0 26px; font-family:var(--mono); font-size:24px; }
+.ratio-legend{ display:flex; flex-wrap:wrap; gap:24px 50px; margin-top:34px; font-family:var(--mono); font-size:22px; color:var(--charcoal); }
+.ratio-legend span{ display:flex; align-items:center; gap:12px; }
+.dotc{ width:18px; height:18px; border-radius:50%; display:inline-block; }
+
+/* font cards */
+.font-card{ border:1px solid var(--grey-line); border-radius:8px; padding:38px; background:var(--paper); display:flex; flex-direction:column; }
+.font-card .role{ font-family:var(--mono); font-size:18px; letter-spacing:.1em; text-transform:uppercase; color:var(--red); margin-bottom:26px; }
+.font-card .big{ font-size:128px; line-height:.9; margin-bottom:24px; letter-spacing:-.02em; }
+.font-card .nm{ font-family:var(--display); font-weight:700; font-size:30px; }
+.font-card .glyphs{ font-size:21px; color:var(--grey); letter-spacing:.04em; line-height:1.7; margin-top:14px; }
+
+/* hierarchy rows */
+.trow{ display:grid; grid-template-columns:300px 1fr; gap:46px; padding:26px 0; border-top:1px solid var(--grey-line); align-items:baseline; }
+.tmeta{ font-family:var(--mono); font-size:18px; color:var(--grey); line-height:1.6; }
+.tmeta b{ color:var(--ink); font-weight:600; display:block; font-size:19px; }
+
+/* principles */
+.principle{ padding-top:26px; border-top:3px solid var(--ink); }
+.principle .num{ font-family:var(--mono); font-size:18px; color:var(--red); letter-spacing:.1em; }
+.principle h4{ font-family:var(--display); font-weight:600; font-size:30px; margin:14px 0 12px; color:var(--ink); }
+.principle p{ margin:0; font-size:20px; line-height:1.5; color:var(--charcoal); }
+
+/* say/not */
+.saynot{ display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--grey-line); border-radius:8px; overflow:hidden; background:var(--paper); }
+.sn__cell{ padding:30px 34px; }
+.sn__cell+.sn__cell{ border-left:1px solid var(--grey-line); }
+.sn__lbl{ font-family:var(--mono); font-size:17px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px; }
+.sn__say .sn__lbl{ color:var(--green); } .sn__not .sn__lbl{ color:var(--red); }
+.sn__txt{ font-family:var(--display); font-weight:500; font-size:24px; line-height:1.35; letter-spacing:-.01em; color:var(--ink); }
+.sn__not .sn__txt{ color:var(--grey); text-decoration:line-through; text-decoration-color:var(--grey-line); }
+
+/* imagery */
+.ph{ position:relative; background:repeating-linear-gradient(135deg,#ECE8E1 0 3px,transparent 3px 14px),var(--offwhite); border:1px solid var(--grey-line); border-radius:8px; display:flex; align-items:center; justify-content:center; overflow:hidden; min-height:0; min-width:0; }
+.ph span{ font-family:var(--mono); font-size:19px; color:#a59f93; letter-spacing:.05em; text-align:center; padding:18px; line-height:1.5; }
+.ph img{ width:100%; height:100%; object-fit:cover; }
+.do-list{ list-style:none; padding:0; margin:0; }
+.do-list li{ display:flex; gap:16px; padding:15px 0; border-top:1px solid var(--grey-line); font-size:22px; color:var(--charcoal); }
+.do-list li::before{ content:"+"; font-family:var(--mono); color:var(--green); font-weight:600; }
+.dont-list li::before{ content:"\2212"; color:var(--red); }
+
+/* icon grid */
+.icon-grid{ display:grid; grid-template-columns:repeat(6,1fr); border:1px solid var(--grey-line); border-radius:8px; overflow:hidden; background:var(--paper); }
+.icon-cell{ aspect-ratio:1.2; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; border-right:1px solid var(--grey-line); border-bottom:1px solid var(--grey-line); }
+.icon-cell svg{ width:56px; height:56px; }
+.icon-cell .lbl{ font-family:var(--mono); font-size:15px; color:var(--grey); letter-spacing:.04em; }
+.photo-grid{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:minmax(0,1fr) minmax(0,1fr); gap:20px; height:100%; min-height:0; }
+.swatch-grid{ display:grid; grid-template-columns:repeat(4,1fr); grid-template-rows:minmax(0,1fr) minmax(0,1fr); gap:24px; margin-top:40px; flex:1; min-height:0; }
+.swatch-grid .swatch{ min-height:0; }
+.swatch-grid .swatch__chip{ height:96px; flex:none; }
+.swatch-grid .swatch__body{ padding:16px 18px; overflow:hidden; }
+.swatch-grid .swatch__name{ font-size:21px; margin:0 0 10px; }
+.swatch-grid .swatch__row{ font-size:17px; padding:6px 0; }
+.swatch-grid .swatch__use{ margin-top:10px; font-size:16px; }
+
+/* applications */
+.app-stage{ background:var(--paper); border:1px solid var(--grey-line); border-radius:10px; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:20px; padding:30px; }
+.app-k{ font-family:var(--mono); font-size:16px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); }
+.bizcard{ width:430px; aspect-ratio:1.75/1; border-radius:10px; box-shadow:0 20px 44px rgba(0,0,0,.18); overflow:hidden; }
+.bizcard--front{ background:var(--paper); color:var(--ink); border:1px solid var(--grey-line); padding:28px; display:flex; flex-direction:column; justify-content:space-between; }
+.bizcard--front .logo-img{ align-self:flex-start; }
+.bizcard .meta{ font-family:var(--mono); font-size:13px; line-height:1.7; letter-spacing:.03em; color:var(--grey); }
+.bizcard .meta b{ color:var(--ink); font-weight:500; display:block; }
+.social{ width:340px; aspect-ratio:1; background:var(--ink); border-radius:10px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 20px 44px rgba(0,0,0,.18); }
+.social__img{ flex:1; background:repeating-linear-gradient(135deg,#1f2227 0 3px,transparent 3px 14px),#202327; display:flex; align-items:center; justify-content:center; }
+.social__img span{ font-family:var(--mono); font-size:14px; color:#6c7178; }
+.social__bar{ background:var(--red); color:#fff; padding:20px 22px; }
+.social__bar .k{ font-family:var(--mono); font-size:12px; letter-spacing:.14em; text-transform:uppercase; opacity:.9; }
+.social__bar .h{ font-family:var(--display); font-weight:700; font-size:24px; line-height:1.15; letter-spacing:-.02em; margin-top:8px; }
+.uislide{ width:500px; aspect-ratio:16/9; background:var(--paper); border-radius:10px; overflow:hidden; box-shadow:0 20px 44px rgba(0,0,0,.18); border:1px solid var(--grey-line); display:flex; flex-direction:column; }
+.uislide__top{ height:10px; background:var(--red); }
+.uislide__body{ flex:1; padding:30px 32px; display:flex; flex-direction:column; justify-content:space-between; }
+.uislide__k{ font-family:var(--mono); font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--red); }
+.uislide__h{ font-family:var(--display); font-weight:700; font-size:32px; letter-spacing:-.025em; line-height:1.08; }
+.uislide__foot{ display:flex; justify-content:space-between; align-items:center; font-family:var(--mono); font-size:12px; color:var(--grey); letter-spacing:.08em; }
+.btnset{ display:flex; flex-direction:column; gap:20px; width:330px; }
+.dbtn{ font-family:var(--display); font-weight:600; font-size:21px; padding:18px 26px; border-radius:12px; border:0; display:flex; align-items:center; justify-content:space-between; letter-spacing:-.01em; }
+.dbtn--primary{ background:var(--red); color:#fff; }
+.dbtn--hover{ background:var(--red-deep); color:#fff; }
+.dbtn--ghost{ background:transparent; color:var(--ink); border:2px solid var(--ink); }
+.dbtn--disabled{ background:#ECE9E3; color:#b4b0a8; }
+.state-k{ font-family:var(--mono); font-size:14px; color:var(--grey); letter-spacing:.08em; text-transform:uppercase; margin-bottom:8px; }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 01 COVER -->
+  <section data-label="Cover">
+    <div class="pad dark" style="justify-content:space-between;">
+      <div class="cover-glow"></div>
+      <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:19px; letter-spacing:.14em; text-transform:uppercase; color:var(--grey); z-index:2;">
+        <span>Brand Guidelines</span><span>v1.0 — 2026</span>
+      </div>
+      <div style="z-index:2;">
+        <img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:148px; margin-left:-4px;">
+        <div style="font-family:var(--display); font-weight:600; font-size:42px; letter-spacing:-.02em; color:var(--ink); margin-top:22px;">Integrated agriculture, operated smarter.</div>
+        <p style="font-size:26px; line-height:1.55; color:var(--charcoal); max-width:880px; margin:30px 0 0;">Deliver adalah smart poultry partnership — kami satukan permodalan, sapronak berkualitas, dan akses pasar dalam satu sistem yang terukur, supaya peternak broiler bisa fokus beternak dengan kepastian.</p>
+      </div>
+      <div style="display:flex; justify-content:space-between; font-family:var(--mono); font-size:19px; letter-spacing:.12em; text-transform:uppercase; color:var(--grey); z-index:2;">
+        <span>PT Sarana Indonesia Maju</span><span>deliver.co.id</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 BRAND STORY -->
+  <section data-label="Brand Story">
+    <div class="pad">
+      <p class="eyebrow">01 — Brand Story</p>
+      <div class="cols c2">
+        <div>
+          <h2 class="h-sec" style="font-size:56px;">Beternak harusnya soal beternak — bukan soal modal, sapronak, dan kebingungan menjual.</h2>
+          <p class="lead" style="margin-top:34px; font-size:25px;">Deliver adalah startup agritech broiler <em>asset-light</em> yang dioperasikan PT Sarana Indonesia Maju. Kami hadir untuk peternak rakyat yang punya kandang dan kemauan, tapi terjebak siklus berat: modal mahal, sapronak tidak menentu, dan harga jual ditentukan pihak lain.</p>
+          <p class="lead" style="margin-top:20px; font-size:25px;">Lewat kemitraan cerdas, Deliver menyediakan permodalan input, sapronak terstandar, dan jaminan akses pasar — dijalankan oleh <em>intelligent system</em> yang membuat setiap siklus terukur dan transparan.</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:34px; justify-content:center;">
+          <div class="problem"><div class="n">PROBLEM 01</div><h4>Modal yang membebani</h4><p>Biaya input di muka terlalu berat. Deliver menanggung permodalan sapronak; peternak fokus ke operasional kandang.</p></div>
+          <div class="problem"><div class="n">PROBLEM 02</div><h4>Sapronak tak menentu</h4><p>Kualitas DOC, pakan, dan obat sering tidak konsisten. Kami pasok sapronak terstandar yang bisa dipertanggungjawabkan.</p></div>
+          <div class="problem"><div class="n">PROBLEM 03</div><h4>Akses pasar yang timpang</h4><p>Harga jual ditentukan pihak lain. Deliver menjamin serapan panen lewat jaringan pasar yang terhubung ke sistem.</p></div>
+        </div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Brand Story</span></div>
+    </div>
+  </section>
+
+  <!-- 03 LOGO -->
+  <section data-label="Logo">
+    <div class="pad">
+      <p class="eyebrow">02 — Logo</p>
+      <h2 class="h-sub" style="font-size:40px; max-width:1180px;">Rooster yang membentuk huruf “D”, menyatu dengan wordmark — tegas dan mudah dikenali. Gunakan versi resmi tanpa modifikasi.</h2>
+      <div class="cols c3" style="margin-top:44px; flex:none;">
+        <div class="stage" style="height:190px;"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:70px;"></div>
+        <div class="stage stage--ink" style="height:190px; background:var(--paper);"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:70px;"></div>
+        <div class="stage stage--red" style="height:190px; background:#ECE9E3;"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:70px;"></div>
+      </div>
+      <div class="cols c2" style="margin-top:34px;">
+        <div>
+          <h4 class="h-sub" style="font-size:28px;">Clear space</h4>
+          <p class="grey" style="font-size:20px; margin-top:8px;">Jaga ruang bebas minimal setinggi huruf “D” (1×) di tiap sisi.</p>
+          <div class="stage" style="margin-top:14px; height:150px;">
+            <div class="clearbox" style="padding:34px;">
+              <img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:46px;">
+              <span class="marker" style="top:-11px; left:50%; transform:translateX(-50%);">1×</span>
+              <span class="marker" style="bottom:-11px; left:50%; transform:translateX(-50%);">1×</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4 class="h-sub" style="font-size:28px;">Minimum size</h4>
+          <p class="grey" style="font-size:20px; margin-top:8px;">Jangan tampilkan di bawah ukuran minimum agar titik tetap terbaca.</p>
+          <div class="stage" style="margin-top:14px; height:150px; gap:80px; flex-wrap:wrap;">
+            <div style="text-align:center;"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:44px; margin:0 auto;"><div class="mono grey" style="font-size:16px; margin-top:10px;">Digital · 160px min</div></div>
+            <div style="text-align:center;"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:24px; margin:0 auto;"><div class="mono grey" style="font-size:16px; margin-top:10px;">Print · 26mm min</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Logo · Construction</span></div>
+    </div>
+  </section>
+
+  <!-- 04 LOGO DO/DONT -->
+  <section data-label="Logo Do's & Don'ts">
+    <div class="pad">
+      <p class="eyebrow">02 — Logo · Do's & Don'ts</p>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:28px; flex:1;">
+        <div class="dd"><div class="dd__art"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:44px; transform:scaleX(1.85);"></div><div class="dd__cap"><span class="dd__tag dd__tag--no">Don't</span><p>Jangan stretch atau ubah proporsi.</p></div></div>
+        <div class="dd"><div class="dd__art"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:46px; filter:hue-rotate(210deg) saturate(1.5);"></div><div class="dd__cap"><span class="dd__tag dd__tag--no">Don't</span><p>Jangan ganti warna di luar palet brand.</p></div></div>
+        <div class="dd"><div class="dd__art" style="background:#202327;"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:46px;"></div><div class="dd__cap"><span class="dd__tag dd__tag--no">Don't</span><p>Hindari kontras rendah di latar gelap.</p></div></div>
+        <div class="dd"><div class="dd__art"><div style="position:absolute; inset:0; background:repeating-linear-gradient(135deg,#ddd 0 3px,transparent 3px 13px);"></div><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:46px; position:relative; filter:drop-shadow(3px 3px 0 rgba(0,0,0,.4));"></div><div class="dd__cap"><span class="dd__tag dd__tag--no">Don't</span><p>Tanpa shadow/outline; jangan di foto ramai.</p></div></div>
+        <div class="dd"><div class="dd__art"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:50px;"></div><div class="dd__cap"><span class="dd__tag dd__tag--yes">Do</span><p>Gunakan logo resmi, proporsi asli.</p></div></div>
+        <div class="dd"><div class="dd__art" style="background:var(--paper);"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:50px;"></div><div class="dd__cap"><span class="dd__tag dd__tag--yes">Do</span><p>Pastikan kontras cukup terhadap latar.</p></div></div>
+        <div class="dd"><div class="dd__art" style="background:#ECE9E3;"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:50px;"></div><div class="dd__cap"><span class="dd__tag dd__tag--yes">Do</span><p>Gunakan versi berwarna di latar netral terang.</p></div></div>
+        <div class="dd"><div class="dd__art"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:50px;"></div><div class="dd__cap"><span class="dd__tag dd__tag--yes">Do</span><p>Hormati clear space & ukuran minimum.</p></div></div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Logo · Misuse</span></div>
+    </div>
+  </section>
+
+  <!-- 05 COLOR -->
+  <section data-label="Color Palette">
+    <div class="pad">
+      <p class="eyebrow">03 — Color Palette</p>
+      <h2 class="h-sub" style="font-size:38px; max-width:1100px;">Satu merah yang berani, didasari netral yang tenang.</h2>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch__chip" style="background:var(--red);"></div><div class="swatch__body"><p class="swatch__name">Deliver Red <span class="mono grey" style="font-size:14px;">PRIMARY</span></p><div class="swatch__row"><span>HEX</span><span>#E12B1A</span></div><div class="swatch__row"><span>RGB</span><span>225·43·26</span></div><p class="swatch__use">Aksen utama, CTA, highlight, blok brand.</p></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:var(--ink);"></div><div class="swatch__body"><p class="swatch__name">Ink <span class="mono grey" style="font-size:14px;">NEUTRAL</span></p><div class="swatch__row"><span>HEX</span><span>#17191C</span></div><div class="swatch__row"><span>RGB</span><span>23·25·28</span></div><p class="swatch__use">Teks utama, headline, cover.</p></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:var(--charcoal);"></div><div class="swatch__body"><p class="swatch__name">Charcoal <span class="mono grey" style="font-size:14px;">NEUTRAL</span></p><div class="swatch__row"><span>HEX</span><span>#33373E</span></div><div class="swatch__row"><span>RGB</span><span>51·55·62</span></div><p class="swatch__use">Body copy, sub-heading, ikon sekunder.</p></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:var(--green);"></div><div class="swatch__body"><p class="swatch__name">Deliver Green <span class="mono grey" style="font-size:14px;">ACCENT</span></p><div class="swatch__row"><span>HEX</span><span>#1F8A5B</span></div><div class="swatch__row"><span>RGB</span><span>31·138·91</span></div><p class="swatch__use">Sinyal positif, growth, validasi data.</p></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:var(--offwhite); border-bottom:1px solid var(--grey-line);"></div><div class="swatch__body"><p class="swatch__name">Off-White</p><div class="swatch__row"><span>HEX</span><span>#F6F4F0</span></div><div class="swatch__row"><span>RGB</span><span>246·244·240</span></div><p class="swatch__use">Latar utama dokumen, kartu, napas.</p></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:var(--grey);"></div><div class="swatch__body"><p class="swatch__name">Grey</p><div class="swatch__row"><span>HEX</span><span>#8A8D92</span></div><div class="swatch__row"><span>RGB</span><span>138·141·146</span></div><p class="swatch__use">Caption, metadata, label sekunder.</p></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:var(--green-wash);"></div><div class="swatch__body"><p class="swatch__name">Green Wash <span class="mono grey" style="font-size:14px;">ACCENT</span></p><div class="swatch__row"><span>HEX</span><span>#E4F0EA</span></div><div class="swatch__row"><span>RGB</span><span>228·240·234</span></div><p class="swatch__use">Latar badge positif, panel data lembut.</p></div></div>
+        <div class="swatch"><div class="swatch__chip" style="background:var(--red-wash);"></div><div class="swatch__body"><p class="swatch__name">Red Wash <span class="mono grey" style="font-size:14px;">SUPPORT</span></p><div class="swatch__row"><span>HEX</span><span>#FBE7E4</span></div><div class="swatch__row"><span>RGB</span><span>251·231·228</span></div><p class="swatch__use">Latar tag peringatan & highlight lembut.</p></div></div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Color · Swatches</span></div>
+    </div>
+  </section>
+
+  <!-- 06 COLOR RATIO -->
+  <section data-label="Color Ratio">
+    <div class="pad">
+      <p class="eyebrow">03 — Color · Usage Ratio</p>
+      <h2 class="h-sec" style="font-size:50px; max-width:1200px;">Netral mendominasi. Merah memimpin. Hijau memberi sinyal.</h2>
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:center; max-width:1400px;">
+        <div class="ratio">
+          <div style="background:var(--offwhite); color:var(--ink); flex:60;">60%</div>
+          <div style="background:var(--ink); color:#fff; flex:25;">25%</div>
+          <div style="background:var(--red); color:#fff; flex:10;">10%</div>
+          <div style="background:var(--green); color:#fff; flex:5;">5%</div>
+        </div>
+        <div class="ratio-legend">
+          <span><i class="dotc" style="background:var(--offwhite); border:1px solid var(--grey-line);"></i> Off-white / neutrals — 60%</span>
+          <span><i class="dotc" style="background:var(--ink);"></i> Ink (text & dark) — 25%</span>
+          <span><i class="dotc" style="background:var(--red);"></i> Deliver Red — 10%</span>
+          <span><i class="dotc" style="background:var(--green);"></i> Green accent — 5%</span>
+        </div>
+        <p class="lead" style="margin-top:50px; max-width:1100px;">Whitespace dan netral hangat menjaga dokumen tetap bersih dan terbaca. Merah dipakai untuk menarik perhatian — bukan bidang besar. Hijau hadir hemat sebagai sinyal positif dan data.</p>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Color · Ratio</span></div>
+    </div>
+  </section>
+
+  <!-- 07 TYPE FAMILIES -->
+  <section data-label="Typography">
+    <div class="pad">
+      <p class="eyebrow">04 — Typography</p>
+      <h2 class="h-sub" style="font-size:38px; max-width:1150px;">Geometric untuk suara, humanist untuk cerita, mono untuk data.</h2>
+      <div class="cols c3" style="margin-top:46px;">
+        <div class="font-card"><div class="role">Headings · Display</div><div class="big" style="font-family:var(--display); font-weight:800;">Aa</div><div class="nm">Sora</div><p class="glyphs">ABCDEFGHIJKLM<br>abcdefghijklm<br>0123456789</p></div>
+        <div class="font-card"><div class="role">Body · Text</div><div class="big" style="font-family:var(--body); font-weight:600;">Aa</div><div class="nm">IBM Plex Sans</div><p class="glyphs">ABCDEFGHIJKLM<br>abcdefghijklm<br>0123456789</p></div>
+        <div class="font-card"><div class="role">Data · Labels</div><div class="big" style="font-family:var(--mono); font-weight:500;">Aa</div><div class="nm">IBM Plex Mono</div><p class="glyphs">ABCDEFGHIJKLM<br>abcdefghijklm<br>0123456789</p></div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Type · Families</span></div>
+    </div>
+  </section>
+
+  <!-- 08 TYPE HIERARCHY -->
+  <section data-label="Type Hierarchy">
+    <div class="pad">
+      <p class="eyebrow">04 — Typography · Hierarchy</p>
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+        <div class="trow"><div class="tmeta"><b>H1 — Display</b>Sora ExtraBold<br>−3.5% LS · Line 1.0</div><div style="font-family:var(--display); font-weight:800; font-size:72px; letter-spacing:-.035em; line-height:1;">Operated smarter.</div></div>
+        <div class="trow"><div class="tmeta"><b>H2 — Section</b>Sora Bold<br>−2.5% LS · Line 1.1</div><div style="font-family:var(--display); font-weight:700; font-size:48px; letter-spacing:-.025em;">Kemitraan broiler yang terukur</div></div>
+        <div class="trow"><div class="tmeta"><b>H3 — Subhead</b>Sora SemiBold<br>−1.5% LS · Line 1.2</div><div style="font-family:var(--display); font-weight:600; font-size:32px; letter-spacing:-.015em;">Modal, sapronak, dan pasar dalam satu sistem</div></div>
+        <div class="trow"><div class="tmeta"><b>Body</b>IBM Plex Sans Regular<br>Line 1.6</div><div style="font-family:var(--body); font-size:23px; line-height:1.6; color:var(--charcoal); max-width:900px;">Deliver menyatukan permodalan input, sapronak berkualitas, dan akses pasar untuk peternak broiler — dijalankan lewat sistem cerdas yang membuat setiap siklus transparan dan terukur.</div></div>
+        <div class="trow"><div class="tmeta"><b>Caption / Label</b>IBM Plex Mono<br>+4% LS</div><div style="font-family:var(--mono); font-size:18px; letter-spacing:.04em; color:var(--grey);">FIG. 04 — SIKLUS PANEN TERUKUR · DOC → PAKAN → PANEN → PASAR</div></div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Type · Hierarchy</span></div>
+    </div>
+  </section>
+
+  <!-- 09 TONE PRINCIPLES -->
+  <section data-label="Tone of Voice">
+    <div class="pad dark">
+      <p class="eyebrow">05 — Tone of Voice</p>
+      <h2 class="h-sec" style="font-size:56px; max-width:1200px;">Bicara seperti partner yang bisa diandalkan.</h2>
+      <p class="lead" style="margin-top:26px; max-width:1100px; font-size:26px;">Percaya diri tanpa sombong, modern tanpa hype, dan selalu membumi — karena yang kami ajak bicara adalah peternak yang ingin kepastian, bukan janji.</p>
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:34px; margin-top:60px;">
+        <div class="principle"><div class="num">01</div><h4>Clear & confident</h4><p>Langsung ke inti, kalimat pendek. Kami tahu yang kami bicarakan.</p></div>
+        <div class="principle"><div class="num">02</div><h4>No jargon berlebihan</h4><p>Teknologi adalah alat, bukan pamer. Jelaskan dalam bahasa peternak.</p></div>
+        <div class="principle"><div class="num">03</div><h4>Fokus ke kepastian</h4><p>Bicara hasil terukur: modal tertanggung, sapronak terstandar, panen terserap.</p></div>
+        <div class="principle"><div class="num">04</div><h4>Membumi & hormat</h4><p>Peternak adalah mitra setara. Tidak menggurui, tidak merendahkan.</p></div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Voice · Principles</span></div>
+    </div>
+  </section>
+
+  <!-- 10 SAY THIS NOT THAT -->
+  <section data-label="Say This, Not That">
+    <div class="pad dark">
+      <p class="eyebrow">05 — Voice · Say this, not that</p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:30px; flex:1; align-content:center;">
+        <div class="saynot"><div class="sn__cell sn__say"><div class="sn__lbl">✓ Say this</div><div class="sn__txt">“Modal sapronak kami tanggung. Anda fokus ke kandang, panen kami serap.”</div></div><div class="sn__cell sn__not"><div class="sn__lbl">✕ Not that</div><div class="sn__txt">“Solusi disruptif berbasis AI untuk transformasi ekosistem unggas nasional.”</div></div></div>
+        <div class="saynot"><div class="sn__cell sn__say"><div class="sn__lbl">✓ Say this</div><div class="sn__txt">“Setiap siklus tercatat — Anda tahu angka pakan, bobot, dan hasil panen.”</div></div><div class="sn__cell sn__not"><div class="sn__lbl">✕ Not that</div><div class="sn__txt">“Leverage real-time data synergy untuk maximize ROI ternak Anda!!!”</div></div></div>
+        <div class="saynot"><div class="sn__cell sn__say"><div class="sn__lbl">✓ Say this</div><div class="sn__txt">“Sapronak berkualitas, terstandar, datang tepat waktu.”</div></div><div class="sn__cell sn__not"><div class="sn__lbl">✕ Not that</div><div class="sn__txt">“Premium next-gen input terbaik se-Indonesia, dijamin 100%!”</div></div></div>
+        <div class="saynot"><div class="sn__cell sn__say"><div class="sn__lbl">✓ Say this</div><div class="sn__txt">“Mari tumbuh bareng. Kami partner Anda, bukan sekadar pemasok.”</div></div><div class="sn__cell sn__not"><div class="sn__lbl">✕ Not that</div><div class="sn__txt">“Bergabunglah dengan revolusi! Jangan sampai ketinggalan!”</div></div></div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Voice · Examples</span></div>
+    </div>
+  </section>
+
+  <!-- 11 IMAGERY -->
+  <section data-label="Imagery">
+    <div class="pad">
+      <p class="eyebrow">06 — Imagery</p>
+      <h2 class="h-sub" style="font-size:38px; max-width:1150px;">Peternak nyata, cahaya alami, tanpa drama.</h2>
+      <div class="cols c2" style="margin-top:44px;">
+        <div class="photo-grid">
+          <div class="ph" style="grid-row:span 2;"><img src="img/farmer-portrait.png" alt="Peternak di depan kandang"></div>
+          <div class="ph"><img src="img/chicks-hands.png" alt="Detail tangan & DOC"></div>
+          <div class="ph"><img src="img/harvest-weighing.png" alt="Panen dan timbangan"></div>
+        </div>
+        <div style="display:flex; flex-direction:column; justify-content:center;">
+          <h4 class="h-sub" style="font-size:26px;">Do</h4>
+          <ul class="do-list" style="margin-top:8px;"><li>Cahaya alami, golden hour atau siang teduh</li><li>Peternak sebagai subjek utama — ekspresi nyata</li><li>Lingkungan kandang autentik, sedikit di-styling</li></ul>
+          <h4 class="h-sub" style="font-size:26px; margin-top:34px;">Don't</h4>
+          <ul class="do-list dont-list" style="margin-top:8px;"><li>Stok korporat yang kaku & dingin</li><li>Over-filter, HDR, atau saturasi neon</li><li>Menutupi wajah peternak demi “estetika”</li></ul>
+        </div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Imagery · Photography</span></div>
+    </div>
+  </section>
+
+  <!-- 12 ICONOGRAPHY -->
+  <section data-label="Iconography">
+    <div class="pad">
+      <p class="eyebrow">06 — Iconography</p>
+      <h2 class="h-sub" style="font-size:38px; max-width:1150px;">Line / minimal · stroke ±2px · geometris · satu warna per ikon.</h2>
+      <div class="icon-grid" style="margin-top:44px;">
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="22" r="11"/><path d="M20 11V6"/><circle cx="20" cy="5" r="1.6" fill="#17191C" stroke="none"/></svg><span class="lbl">Flock</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="20" cy="20" r="12"/><path d="M20 14v12M16 18h6.5a2.5 2.5 0 010 5H16"/></svg><span class="lbl">Capital</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 30V20M16 30V14M24 30V22M32 30V10"/></svg><span class="lbl">Measured</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 26l8-8 5 5 8-9M31 14h-6M31 14v6"/></svg><span class="lbl">Growth</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 33s10-8 10-16a10 10 0 10-20 0c0 8 10 16 10 16z"/><circle cx="20" cy="17" r="3.5"/></svg><span class="lbl">Market</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6l11 4v8c0 7-5 12-11 16-6-4-11-9-11-16v-8z"/><path d="M15 20l4 4 7-8"/></svg><span class="lbl">Quality</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="16" height="16" rx="2"/><path d="M24 17h5l3 4v7h-8"/><circle cx="14" cy="29" r="2.5"/><circle cx="27" cy="29" r="2.5"/></svg><span class="lbl">Logistics</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 25a16 16 0 0122 0M14 28a10 10 0 0112 0"/><circle cx="20" cy="31" r="1.8" fill="#17191C" stroke="none"/></svg><span class="lbl">Smart system</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="10" width="24" height="20" rx="2"/><path d="M8 16h24M14 10V6M26 10V6"/></svg><span class="lbl">Cycle</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 30c-4 0-7-3-7-7s3-7 7-7c0-5 4-9 9-9 4 0 8 3 9 7 3 0 5 3 5 6s-3 6-6 6"/><path d="M20 16v10M16 22l4 4 4-4"/></svg><span class="lbl">Supply</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="15" r="5"/><path d="M7 31c0-5 4-8 9-8s9 3 9 8"/><path d="M26 14h7M29.5 10.5v7"/></svg><span class="lbl">Partner</span></div>
+        <div class="icon-cell"><svg viewBox="0 0 40 40" fill="none" stroke="#17191C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7v6M20 27v6M7 20h6M27 20h6"/><circle cx="20" cy="20" r="6"/></svg><span class="lbl">Transparency</span></div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Iconography · Set</span></div>
+    </div>
+  </section>
+
+  <!-- 13 APPLICATIONS A -->
+  <section data-label="Applications I">
+    <div class="pad">
+      <p class="eyebrow">07 — Applications</p>
+      <h2 class="h-sub" style="font-size:38px; max-width:1150px;">Sistem yang sama, di mana pun brand muncul.</h2>
+      <div class="cols c2" style="margin-top:44px;">
+        <div class="app-stage"><div class="app-k">Business Card · 90 × 54 mm</div>
+          <div class="bizcard bizcard--front"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:20px;"><div class="meta"><b>Rafi Pratama</b>Partnership Lead<br><br>rafi@deliver.co.id · +62 812 0000 0000<br>deliver.co.id</div></div>
+        </div>
+        <div class="app-stage"><div class="app-k">Social Post · 1080 × 1080</div>
+          <div class="social"><div class="social__img"><span>[ FOTO PETERNAK ]</span></div><div class="social__bar"><div class="k">Kemitraan Broiler</div><div class="h">Modal kami tanggung.<br>Panen kami serap.</div></div></div>
+        </div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Applications · Print & Social</span></div>
+    </div>
+  </section>
+
+  <!-- 14 APPLICATIONS B -->
+  <section data-label="Applications II">
+    <div class="pad">
+      <p class="eyebrow">07 — Applications</p>
+      <div class="cols c2" style="margin-top:20px;">
+        <div class="app-stage"><div class="app-k">Slide Header · 16 : 9</div>
+          <div class="uislide"><div class="uislide__top"></div><div class="uislide__body"><div class="uislide__k">01 — Overview</div><div class="uislide__h">Integrated agriculture,<br>operated smarter.</div><div class="uislide__foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:18px;"><span>PT SARANA INDONESIA MAJU</span></div></div></div>
+        </div>
+        <div class="app-stage"><div class="app-k">App UI · Button States</div>
+          <div class="btnset">
+            <div><div class="state-k">Primary · Default</div><button class="dbtn dbtn--primary">Mulai kemitraan <span>→</span></button></div>
+            <div><div class="state-k">Primary · Hover/Press</div><button class="dbtn dbtn--hover">Mulai kemitraan <span>→</span></button></div>
+            <div><div class="state-k">Secondary · Ghost</div><button class="dbtn dbtn--ghost">Lihat simulasi <span>→</span></button></div>
+            <div><div class="state-k">Disabled</div><button class="dbtn dbtn--disabled">Mulai kemitraan <span>→</span></button></div>
+          </div>
+        </div>
+      </div>
+      <div class="foot"><img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:30px;"><span>Applications · Digital</span></div>
+    </div>
+  </section>
+
+  <!-- 15 CLOSING -->
+  <section data-label="Closing">
+    <div class="pad dark" style="justify-content:center; align-items:flex-start;">
+      <div class="cover-glow"></div>
+      <div style="z-index:2;">
+        <img class="logo-img" src="uploads/logo-deliver.png" alt="Deliver" style="height:116px; margin-left:-4px;">
+        <div style="font-family:var(--display); font-weight:600; font-size:38px; color:var(--ink); margin-top:20px; letter-spacing:-.02em;">Integrated agriculture, operated smarter.</div>
+        <p style="font-size:24px; color:var(--charcoal); margin-top:24px; max-width:760px; line-height:1.55;">Terukur, transparan, modern, dan membumi — di setiap titik sentuh brand.</p>
+      </div>
+      <div class="foot"><span>PT SARANA INDONESIA MAJU</span><span>BRAND GUIDELINES v1.0 — 2026 · DELIVER.CO.ID</span></div>
+    </div>
+  </section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+</body>
+</html>
