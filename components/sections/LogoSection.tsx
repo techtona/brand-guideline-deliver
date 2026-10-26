@@ -3,6 +3,15 @@ import { logoRules } from "@/lib/brand";
 
 const primaryStages = ["logo-stage--paper", "", "logo-stage--neutral"];
 
+const logoDownloads = [
+  { file: "deliver-logo-primary.svg", label: "Logo — primary" },
+  { file: "deliver-logo-reverse.svg", label: "Logo — reverse (latar gelap)" },
+  { file: "deliver-logo-mono-black.svg", label: "Logo — mono hitam" },
+  { file: "deliver-logo-mono-white.svg", label: "Logo — mono putih" },
+  { file: "deliver-symbol-primary.svg", label: "Simbol — primary" },
+  { file: "deliver-symbol-reverse.svg", label: "Simbol — reverse" },
+];
+
 export function LogoSection() {
   return (
     <section className="section section--paper" id="logo">
@@ -11,8 +20,8 @@ export function LogoSection() {
           <p className="eyebrow">02 — Logo</p>
           <h2 className="h-section">Logo kami tegas dan mudah dikenali. Lindungi keterbacaannya.</h2>
           <p className="lead mt-m">
-            Logo Deliver memadukan rooster yang membentuk huruf “D” dengan wordmark — simbol energi dan
-            kepastian. Gunakan versi resmi tanpa modifikasi.
+            Logo Deliver memadukan simbol rooster berbentuk “D” dengan wordmark DELIVER — simbol energi
+            dan kepastian. Gunakan versi resmi tanpa modifikasi.
           </p>
         </div>
 
@@ -52,7 +61,7 @@ export function LogoSection() {
           <div>
             <h3 className="h-sub">Minimum size</h3>
             <p className="grey mt-s" style={{ fontSize: 15 }}>
-              Agar titik merah tetap terbaca, jangan tampilkan logo di bawah ukuran minimum berikut.
+              Agar detail simbol tetap terbaca, jangan tampilkan logo di bawah ukuran minimum berikut.
             </p>
             <div className="logo-stage logo-stage--sizes mt-m">
               <div className="size-spec">
@@ -87,6 +96,25 @@ export function LogoSection() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* downloads */}
+        <h3 className="h-sub mt-l">Unduh aset logo</h3>
+        <p className="grey mt-s" style={{ fontSize: 15 }}>
+          Paket lengkap berisi SVG, PDF, PNG (hingga 4000px), dan app icon dalam varian primary,
+          reverse, mono hitam, dan mono putih.
+        </p>
+        <div className="grid grid-2 mt-m">
+          <a className="dbtn dbtn--primary dl-btn" href="/brand-assets/deliver-logo-kit.zip" download>
+            Logo kit lengkap (.zip) <span className="ar">↓</span>
+          </a>
+          <div className="dl-list">
+            {logoDownloads.map(({ file, label }) => (
+              <a key={file} href={`/brand-assets/logo/svg/${file}`} download>
+                {label} <span className="mono grey">SVG</span>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </section>

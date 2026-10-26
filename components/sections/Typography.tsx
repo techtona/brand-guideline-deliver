@@ -6,17 +6,18 @@ export function Typography() {
       <div className="container">
         <div className="section-head">
           <p className="eyebrow">04 — Typography</p>
-          <h2 className="h-section">Geometric untuk suara, humanist untuk cerita.</h2>
+          <h2 className="h-section">Tegas untuk suara, nyaman untuk cerita.</h2>
           <p className="lead mt-m">
-            Dua keluarga huruf open-source yang gratis dan tersedia luas. Sora memberi karakter modern
-            &amp; tegas; IBM Plex Sans menjaga teks panjang tetap nyaman; IBM Plex Mono menandai data
-            dan label — refleksi sifat brand yang terukur.
+            Dua keluarga huruf open-source yang gratis dan tersedia luas. Open Sans — sudah ada di
+            Google Docs, Canva, dan banyak perangkat — dipakai untuk headline yang tegas sekaligus teks
+            panjang yang nyaman dibaca; IBM Plex Mono menandai data dan label — refleksi sifat brand
+            yang terukur.
           </p>
         </div>
 
         <div className="grid grid-3">
           {typefaces.map((face) => (
-            <div className="font-card" key={face.name}>
+            <div className="font-card" key={face.role}>
               <div className="role">{face.role}</div>
               <div
                 className="big"

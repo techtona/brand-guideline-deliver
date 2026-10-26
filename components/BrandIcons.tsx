@@ -86,7 +86,7 @@ export const brandIcons: { label: string; art: ReactNode }[] = [
     ),
   },
   {
-    label: "Smart system",
+    label: "Monitoring",
     art: (
       <Icon>
         <path d="M9 25a16 16 0 0122 0M14 28a10 10 0 0112 0" />

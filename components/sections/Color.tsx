@@ -31,10 +31,11 @@ export function Color() {
       <div className="container">
         <div className="section-head">
           <p className="eyebrow">03 — Color Palette</p>
-          <h2 className="h-section">Satu merah yang berani, didasari netral yang tenang.</h2>
+          <h2 className="h-section">Navy yang tenang dan tegas, merah sebagai energinya.</h2>
           <p className="lead mt-m">
-            Deliver Red membawa energi dan kepastian; netral hangat menjaga dokumen tetap bersih dan
-            terbaca; hijau dipakai hemat untuk sinyal positif dan data.
+            Deliver Navy membawa kepercayaan dan kepastian; Deliver Red memberi energi pada aksen dan
+            highlight; netral hangat menjaga dokumen tetap bersih dan terbaca; amber dari bulu logo dipakai
+            hemat untuk highlight dan data.
           </p>
         </div>
 

@@ -8,9 +8,9 @@ export const brand = {
   legal: "PT Sarana Indonesia Maju",
   domain: "deliver.co.id",
   version: "v1.0 — 2026",
-  tagline: "Integrated agriculture, operated smarter.",
+  tagline: "Beternak lebih pasti.",
   essence:
-    "Deliver adalah smart poultry partnership — kami satukan permodalan, sapronak berkualitas, dan akses pasar dalam satu sistem yang terukur, supaya peternak broiler bisa fokus beternak dengan kepastian.",
+    "Deliver adalah kemitraan broiler — kami satukan permodalan, sapronak berkualitas, dan akses pasar dalam satu sistem yang terukur, supaya peternak bisa fokus beternak dengan kepastian.",
 } as const;
 
 export const navItems = [
@@ -73,11 +73,18 @@ export type Swatch = {
 
 export const primaryColors: Swatch[] = [
   {
-    name: "Deliver Red",
+    name: "Deliver Navy",
     role: "— PRIMARY",
+    hex: "#082852",
+    rgb: "8 · 40 · 82",
+    use: "Warna utama brand: blok brand, header, latar materi, dan tombol utama. Tenang, tegas, dan bisa dipercaya.",
+  },
+  {
+    name: "Deliver Red",
+    role: "— SECONDARY",
     hex: "#E12B1A",
     rgb: "225 · 43 · 26",
-    use: "Aksen utama, CTA, highlight, blok brand. Gunakan untuk menarik perhatian — bukan untuk bidang besar.",
+    use: "Energi brand: aksen, highlight, angka penting, dan warna logo. Pakai hemat — bukan untuk bidang besar.",
   },
   {
     name: "Ink",
@@ -86,6 +93,9 @@ export const primaryColors: Swatch[] = [
     rgb: "23 · 25 · 28",
     use: "Teks utama, headline, dan ikon. Near-black hangat — bukan hitam murni.",
   },
+];
+
+export const secondaryColors: Swatch[] = [
   {
     name: "Charcoal",
     role: "— NEUTRAL",
@@ -93,9 +103,6 @@ export const primaryColors: Swatch[] = [
     rgb: "51 · 55 · 62",
     use: "Body copy, sub-heading, ikon sekunder pada latar terang.",
   },
-];
-
-export const secondaryColors: Swatch[] = [
   {
     name: "Off-White",
     hex: "#F6F4F0",
@@ -110,60 +117,53 @@ export const secondaryColors: Swatch[] = [
     use: "Caption, metadata, label sekunder, hairline kuat.",
   },
   {
-    name: "Deliver Green",
+    name: "Deliver Amber",
     role: "— ACCENT",
-    hex: "#1F8A5B",
-    rgb: "31 · 138 · 91",
-    use: "Sinyal positif, status sehat, growth, validasi data. Hemat.",
-  },
-  {
-    name: "Green Wash",
-    role: "— ACCENT",
-    hex: "#E4F0EA",
-    rgb: "228 · 240 · 234",
-    use: "Latar tag/badge positif, panel data lembut.",
-    outlined: true,
+    hex: "#FBB13F",
+    rgb: "251 · 177 · 63",
+    use: "Diambil dari bulu teratas logo. Aksen hangat untuk highlight, badge, dan data. Hemat — jangan untuk teks di latar terang.",
   },
 ];
 
 export const usageRatio = [
-  { label: "Off-white / neutrals — 60%", short: "60%", flex: 60, bg: "#F6F4F0", fg: "#17191C", outlined: true },
-  { label: "Ink (text & dark) — 25%", short: "25%", flex: 25, bg: "#17191C", fg: "#ffffff" },
-  { label: "Deliver Red — 10%", short: "10%", flex: 10, bg: "#E12B1A", fg: "#ffffff" },
-  { label: "Green accent — 5%", short: "5%", flex: 5, bg: "#1F8A5B", fg: "#ffffff" },
+  { label: "Off-white / neutrals — 55%", short: "55%", flex: 55, bg: "#F6F4F0", fg: "#17191C", outlined: true },
+  { label: "Deliver Navy — 25%", short: "25%", flex: 25, bg: "#082852", fg: "#ffffff" },
+  { label: "Ink (text) — 10%", short: "10%", flex: 10, bg: "#17191C", fg: "#ffffff" },
+  { label: "Deliver Red — 7%", short: "7%", flex: 7, bg: "#E12B1A", fg: "#ffffff" },
+  { label: "Amber accent — 3%", short: "3%", flex: 3, bg: "#FBB13F", fg: "#17191C" },
 ];
 
 export const typefaces = [
-  { role: "Headings · Display", name: "Sora", varName: "--display", weight: 800 },
-  { role: "Body · Text", name: "IBM Plex Sans", varName: "--body", weight: 600 },
+  { role: "Headings · Display", name: "Open Sans", varName: "--display", weight: 800 },
+  { role: "Body · Text", name: "Open Sans", varName: "--body", weight: 400 },
   { role: "Data · Labels", name: "IBM Plex Mono", varName: "--mono", weight: 500 },
 ] as const;
 
 export const typeScale = [
   {
     label: "H1 — Display",
-    meta: ["Sora ExtraBold", "clamp 40–68px · -3.5% LS", "Line 1.0"],
+    meta: ["Open Sans ExtraBold", "clamp 40–68px · -2.5% LS", "Line 1.0"],
     className: "specimen-h1",
-    sample: "Operated smarter.",
+    sample: "Beternak lebih pasti.",
   },
   {
     label: "H2 — Section",
-    meta: ["Sora Bold", "clamp 28–40px · -2.5% LS", "Line 1.1"],
+    meta: ["Open Sans Bold", "clamp 28–40px · -2% LS", "Line 1.1"],
     className: "specimen-h2",
     sample: "Kemitraan broiler yang terukur",
   },
   {
     label: "H3 — Subhead",
-    meta: ["Sora SemiBold", "24px · -1.5% LS", "Line 1.2"],
+    meta: ["Open Sans SemiBold", "24px · -1% LS", "Line 1.2"],
     className: "specimen-h3",
     sample: "Modal, sapronak, dan pasar dalam satu sistem",
   },
   {
     label: "Body",
-    meta: ["IBM Plex Sans Regular", "17px · 0 LS", "Line 1.65"],
+    meta: ["Open Sans Regular", "17px · 0 LS", "Line 1.65"],
     className: "specimen-body",
     sample:
-      "Deliver menyatukan permodalan input, sapronak berkualitas, dan akses pasar untuk peternak broiler — dijalankan lewat sistem cerdas yang membuat setiap siklus transparan, terukur, dan bisa dipertanggungjawabkan.",
+      "Deliver menyatukan permodalan input, sapronak berkualitas, dan akses pasar untuk peternak broiler — dengan setiap siklus yang transparan, terukur, dan bisa dipertanggungjawabkan.",
   },
   {
     label: "Caption / Label",
@@ -202,7 +202,7 @@ export const sayNot = [
     not: "“Solusi disruptif berbasis AI untuk transformasi ekosistem unggas nasional.”",
   },
   {
-    say: "“Setiap siklus tercatat — Anda tahu angka pakan, bobot, dan hasil panen.”",
+    say: "“Setiap siklus bisa dipertanggungjawabkan — angka pakan, bobot, dan hasil panen terbuka untuk Anda.”",
     not: "“Leverage real-time data synergy untuk maximize ROI ternak Anda!!!”",
   },
   {
@@ -227,4 +227,22 @@ export const imageryDont = [
   "Over-filter, HDR berlebihan, atau saturasi neon",
   "Subjek tersenyum dipaksakan ke kamera",
   "Menutupi wajah peternak demi “estetika”",
+];
+
+export const mascotPoses = [
+  { src: "/brand-assets/mascot/deliver-mascot-thumbs-up-600.png", alt: "Maskot Deliver mengacungkan jempol sambil memegang lap", caption: "Pose jempol", stage: "paper" },
+  { src: "/brand-assets/mascot/deliver-mascot-wink-600.png", alt: "Maskot Deliver mengedipkan mata dan mengacungkan jempol", caption: "Pose kedip", stage: "navy" },
+] as const;
+
+export const mascotDo = [
+  "Konten sosial media dan edukasi peternak",
+  "Onboarding aplikasi dan pesan sapaan",
+  "Stiker, merchandise, dan pengumuman yang ramah",
+];
+
+export const mascotDont = [
+  "Dokumen formal: kontrak, laporan keuangan, proposal resmi",
+  "Menggantikan logo — maskot adalah pendamping, bukan logo",
+  "Mengubah warna, proporsi, atau memotong tubuh maskot",
+  "Di atas foto ramai sampai garis tepinya hilang",
 ];

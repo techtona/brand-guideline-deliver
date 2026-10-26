@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-/** Intrinsic dimensions of the supplied logo artwork. */
-const LOGO_W = 669;
-const LOGO_H = 205;
+/** Intrinsic dimensions of the logo artwork (SVG viewBox, rounded). */
+const LOGO_W = 765;
+const LOGO_H = 190;
 
 type Props = {
   /** Rendered height in px. Also drives the requested image width. */
@@ -20,7 +20,7 @@ export function BrandLogo({ height, reverse, fluid, className, priority }: Props
 
   return (
     <Image
-      src={reverse ? "/logo/logo-deliver-reverse.png" : "/logo/logo-deliver.png"}
+      src={reverse ? "/logo/logo-deliver-reverse.svg" : "/logo/logo-deliver.svg"}
       alt="Deliver"
       width={width}
       height={height}

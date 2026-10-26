@@ -1,4 +1,5 @@
 import { BrandLogo } from "@/components/BrandLogo";
+import { brand } from "@/lib/brand";
 
 export function Applications() {
   return (
@@ -35,8 +36,8 @@ export function Applications() {
               </div>
               <div className="bizcard bizcard--back">
                 <div>
-                  <div className="h">Operated smarter.</div>
-                  <div className="k mono">INTEGRATED AGRICULTURE</div>
+                  <div className="h">{brand.tagline}</div>
+                  <div className="k mono">KEMITRAAN BROILER</div>
                 </div>
               </div>
             </div>
@@ -77,11 +78,7 @@ export function Applications() {
                 <div className="slide__body">
                   <div className="slide__k">01 — Overview</div>
                   <div>
-                    <div className="slide__h">
-                      Integrated agriculture,
-                      <br />
-                      operated smarter.
-                    </div>
+                    <div className="slide__h">{brand.tagline}</div>
                   </div>
                   <div className="slide__foot">
                     <BrandLogo height={13} />

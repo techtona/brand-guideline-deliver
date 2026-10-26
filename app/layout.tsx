@@ -1,20 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { IBM_Plex_Mono, IBM_Plex_Sans, Sora } from "next/font/google";
+import { IBM_Plex_Mono, Open_Sans } from "next/font/google";
 import { brand } from "@/lib/brand";
 import "./globals.css";
 
-const sora = Sora({
+const openSans = Open_Sans({
   subsets: ["latin"],
-  display: "swap",
-  variable: "--font-sora",
-});
-
-const plexSans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-plex-sans",
+  variable: "--font-open-sans",
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -55,7 +48,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="id" className={`${sora.variable} ${plexSans.variable} ${plexMono.variable}`}>
+    <html lang="id" className={`${openSans.variable} ${plexMono.variable}`}>
       <body>{children}</body>
     </html>
   );
