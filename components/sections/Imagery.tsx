@@ -84,7 +84,7 @@ export function Imagery() {
           {mascotPoses.map((pose) => (
             <figure className="mascot" key={pose.src}>
               <div className={`mascot__stage mascot__stage--${pose.stage}`}>
-                <Image src={pose.src} alt={pose.alt} width={600} height={600} sizes={PHOTO_SIZES} />
+                <Image src={pose.src} alt={pose.alt} width={pose.width} height={pose.height} sizes={PHOTO_SIZES} />
               </div>
               <figcaption className="mono grey">{pose.caption}</figcaption>
             </figure>

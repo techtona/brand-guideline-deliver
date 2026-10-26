@@ -230,8 +230,8 @@ export const imageryDont = [
 ];
 
 export const mascotPoses = [
-  { src: "/brand-assets/mascot/deliver-mascot-thumbs-up-600.png", alt: "Maskot Deliver mengacungkan jempol sambil memegang lap", caption: "Pose jempol", stage: "paper" },
-  { src: "/brand-assets/mascot/deliver-mascot-wink-600.png", alt: "Maskot Deliver mengedipkan mata dan mengacungkan jempol", caption: "Pose kedip", stage: "navy" },
+  { src: "/brand-assets/mascot/deliver-mascot-thumbs-up.png", width: 1365, height: 1560, alt: "Maskot Deliver mengacungkan jempol sambil memegang lap", caption: "Pose jempol", stage: "paper" },
+  { src: "/brand-assets/mascot/deliver-mascot-wink.png", width: 934, height: 914, alt: "Maskot Deliver mengedipkan mata dan mengacungkan jempol", caption: "Pose kedip", stage: "navy" },
 ] as const;
 
 export const mascotDo = [
