@@ -293,15 +293,32 @@ p{ line-height:1.65; color:var(--charcoal); }
 .app-card__stage{ padding:34px; background:var(--offwhite); display:flex; align-items:center; justify-content:center; min-height:260px; flex:1; }
 .app-card__stage--cards{ gap:20px; flex-wrap:wrap; }
 
-/* business card */
-.bizcard{ width:340px; max-width:100%; aspect-ratio:1.75/1; border-radius:8px; box-shadow:0 18px 40px rgba(0,0,0,.16); position:relative; overflow:hidden; }
-.bizcard--front{ background:var(--paper); color:var(--ink); border:1px solid var(--grey-line); padding:22px; display:flex; flex-direction:column; justify-content:space-between; }
-.bizcard--front .logo-img{ align-self:flex-start; }
-.bizcard--back{ background:var(--navy); color:#fff; display:flex; align-items:center; justify-content:center; text-align:center; }
-.bizcard--back .h{ font-family:var(--display); font-weight:700; font-size:20px; color:#fff; letter-spacing:-.02em; }
-.bizcard--back .k{ font-family:var(--mono); font-size:8.5px; color:#B9C6DA; letter-spacing:.1em; margin-top:8px; }
-.bizcard .meta{ font-family:var(--mono); font-size:9.5px; line-height:1.7; letter-spacing:.04em; color:var(--grey); }
-.bizcard .meta b{ color:var(--ink); font-weight:500; display:block; }
+/* business card — mirrors the printed card (89 × 51 mm) */
+.bizcard{ width:340px; max-width:100%; aspect-ratio:89/51; border-radius:8px; box-shadow:0 18px 40px rgba(0,0,0,.16); position:relative; overflow:hidden; font-family:var(--body); }
+.bizcard__mark{ position:absolute; pointer-events:none; height:auto; }
+.bizcard__icon{ width:13px; height:13px; flex:none; fill:var(--navy); }
+.bizcard--front{ background:var(--offwhite); color:var(--navy); padding:16px 18px 0; display:flex; flex-direction:column; }
+.bizcard--front .bizcard__mark{ width:44%; right:6%; top:8%; opacity:.045; }
+.bizcard--front .logo-img{ align-self:flex-start; position:relative; }
+.bizcard__id{ margin-top:18px; display:flex; flex-direction:column; position:relative; }
+.bizcard__id b{ font-weight:700; font-size:15px; line-height:1.15; letter-spacing:-.01em; color:var(--navy); }
+.bizcard__id span{ font-size:9px; color:var(--red); margin-top:2px; }
+.bizcard__contact{ list-style:none; margin:auto 0 12px; padding:0; display:flex; flex-direction:column; gap:4px; position:relative; }
+.bizcard__contact li{ display:flex; align-items:flex-start; gap:6px; font-size:7.5px; line-height:1.35; color:var(--navy); }
+.bizcard__contact li .bizcard__icon{ margin-top:-1px; }
+.bizcard__stripe{ height:8px; margin:0 -18px; background:linear-gradient(100deg, var(--amber) 0 29%, var(--red) 29% 61%, var(--navy) 61%); }
+.bizcard--back{ background:var(--navy); color:#fff; padding:16px 18px; display:flex; flex-direction:column; justify-content:space-between; }
+.bizcard--back .bizcard__mark{ width:46%; left:3%; top:9%; opacity:.06; }
+.bizcard__claim{ position:relative; margin-left:44%; margin-top:22px; }
+.bizcard__claim .h{ font-family:var(--display); font-weight:700; font-size:20px; line-height:1.08; letter-spacing:-.01em; color:#fff; }
+.bizcard__claim .h span{ color:var(--amber); }
+.bizcard__claim .k{ font-weight:600; font-size:7px; letter-spacing:.14em; color:#DCE3EE; margin-top:10px; }
+.bizcard__rule{ display:block; width:26px; height:1.5px; background:var(--amber); margin-top:8px; }
+.bizcard__foot{ position:relative; display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.bizcard__web{ display:flex; align-items:center; gap:6px; font-weight:700; font-size:8.5px; }
+.bizcard__web .bizcard__icon{ fill:#fff; }
+.bizcard__web .bizcard__icon g{ stroke:var(--navy); }
+.bizcard__legal{ font-size:6.5px; letter-spacing:.14em; color:#DCE3EE; }
 
 /* social post */
 .social{ width:300px; max-width:100%; aspect-ratio:1; background:var(--ink); border-radius:8px; overflow:hidden; position:relative; box-shadow:0 18px 40px rgba(0,0,0,.16); display:flex; flex-direction:column; }
